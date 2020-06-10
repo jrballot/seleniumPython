@@ -1,0 +1,75 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<div class="col-xs-4 col-xs-offset-4 well text-center">
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Logo4Linux.png" class="mw-20">
+
+  <h3>Please register to access the task list.</h3>
+  <form action="" class="form-horizontal" method="POST">
+    {{form.csrf_token}}
+    <div class="form-group">
+      {{ form.name(placeholder="name" )}}
+      <br>
+      {% if form.name.errors %}
+      <div class="alert alert-danger">
+        {% for error in form.name.errors %}
+          {{error}}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.surname(placeholder="surname" )}}
+      <br>
+      {% if form.surname.errors %}
+      <div class="alert alert-danger">
+        {% for error in form.surname.errors %}
+          {{error}}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.email(placeholder="email address" )}}
+      <br>
+      {% if form.email.errors %}
+      <div class="alert alert-danger">
+        {% for error in form.email.errors %}
+          {{error}}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="form-group">
+      {{ form.password(placeholder="password" )}}
+      <br>
+      {% if form.password.errors %}
+      <div class="alert alert-danger">
+        {% for error in form.password.errors %}
+          {{error}}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.confirm(placeholder="confirm password")}}
+      <br>
+      {% if form.confirm.errors %}
+      <div class="alert alert-danger">
+        {% for error in form.confirm.errors %}
+          {{error}}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <button class="btn btn-primary" type="submit" value="Register">Register</button>
+  </form>
+
+  <br>
+  <p><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
+</div>
+
+
+{% endblock %}
