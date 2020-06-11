@@ -9,6 +9,7 @@ class AllTests(unittest.TestCase):
         self.options = Options()
         self.options.add_argument("--headless")
         self.driver = webdriver.Firefox(options=self.options)
+        app.config['TESTING'] = True
         self.app = app.test_client()
 
     def test_form_showing(self):
@@ -18,6 +19,6 @@ class AllTests(unittest.TestCase):
         assert "No results found." not in driver.page_source
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    #app.run(host='0.0.0.0')
     unittest.main()
 
